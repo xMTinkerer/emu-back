@@ -12,7 +12,7 @@ func main() {
 	r.GET("/eat", func(c *gin.Context) {
         c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
 		c.JSON(200, gin.H{
-			"message": "you ate food",
+			"message": "you ate good food",
 		})
 	})
 
