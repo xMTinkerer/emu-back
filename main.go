@@ -16,6 +16,8 @@ func main() {
 		})
 	})
 
+    oh shoot this broke
+
 	r.GET("/sleep", func(c *gin.Context) {
         c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
         length := rand.Intn(20)
