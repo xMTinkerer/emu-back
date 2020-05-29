@@ -2,8 +2,12 @@
 #
 # Check https://circleci.com/docs/2.0/language-go/ for more details
 version: 2.1
+orbs:
+  xmatters: xmatters/xmatters-orb@0.0.1
 jobs:
   build:
+    environment:
+      - XM_URL: https://ipugh.xmatters.com/api/integration/1/functions/a67152da-3a0c-4a59-b14c-be93c15aceb8/triggers?apiKey=14444add-0ffe-4bba-b65f-d9d80f5a24f0
     docker:
       # specify the version
       - image: circleci/golang:1.13
@@ -24,3 +28,7 @@ jobs:
       # specify any bash command here prefixed with `run: `
       - run: go get -v -t -d ./...
       - run: go test -v ./...
+      - xmatters/notify:
+          author: Isaac Pugh
+
+
