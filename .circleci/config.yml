@@ -28,7 +28,7 @@ jobs:
       # specify any bash command here prefixed with `run: `
       - run: go get -v -t -d ./...
       - run: go test -v ./...
-      - xmatters/notify:
-          author: Isaac Pugh
-
-
+      - xmatters/notify_raw:
+          json_payload: >-
+            { "properties": { "job": "job name here", "author": "Deon Sanders",
+            "something": "value"  }, "recipients": [{ "id": "dsanders" }] }
