@@ -12,7 +12,7 @@ func main() {
 	r.GET("/eat", func(c *gin.Context) {
         c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
 		c.JSON(200, gin.H{
-			"message": "you ate good food",
+			"message": "you ate new food",
 		})
 	})
 
@@ -21,7 +21,7 @@ func main() {
         length := rand.Intn(20)
         time.Sleep(time.Duration(length + 20) * time.Second)
 		c.JSON(200, gin.H{
-			"message": "you slept",
+			"message": "you slept and feel refreshed",
 		})
 	})
 
