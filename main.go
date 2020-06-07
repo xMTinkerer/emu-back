@@ -29,7 +29,7 @@ func main() {
 
         c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
 		c.JSON(200, gin.H{
-			"message": "/img/HatOn.png",
+			"result": "/img/HatOff.png",
         })    
 
     })
