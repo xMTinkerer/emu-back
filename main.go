@@ -12,7 +12,7 @@ func main() {
 	r.GET("/eat", func(c *gin.Context) {
         c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
 		c.JSON(200, gin.H{
-			"message": "You ate new cookies!",
+			"message": "You ate new cookies.",
 		})
 	})
 
@@ -25,7 +25,7 @@ func main() {
 		})
     })
     
-    r.GET("/getEmu", func( c *gin.Context ) {
+    r.GET("/get-emu", func(c *gin.Context) {
 
         c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
 		c.JSON(200, gin.H{
