@@ -23,7 +23,16 @@ func main() {
 		c.JSON(200, gin.H{
 			"message": "you slept and feel refreshed",
 		})
-	})
+    })
+    
+    r.GET("/getEmu", func( c *gin.Context ) {
+
+        c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.JSON(200, gin.H{
+			"message": "/img/HatOn.png",
+        })    
+
+    })
 
     r.Run(":8080") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }
