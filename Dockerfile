@@ -6,6 +6,8 @@ ENV GO111MODULE=on \
     GOOS=linux \
     GOARCH=amd64
 
+RUN go get gopkg.in/DataDog/dd-trace-go.v1/ddtrace
+
 # Move to working directory /build
 WORKDIR /build
 

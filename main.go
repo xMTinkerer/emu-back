@@ -1,13 +1,23 @@
 package main
 
 import (
+    gintrace "gopkg.in/DataDog/dd-trace-go.v1/contrib/gin-gonic/gin"
+    "gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
+
     "github.com/gin-gonic/gin"
     "time"
     "math/rand"
 )
 
 func main() {
-	r := gin.Default()
+    // tracer.Start(tracer.WithAnalytics(true))
+    tracer.Start(tracer.WithAgentAddr("datadog-agent:8126"))
+    defer tracer.Stop()
+
+    r := gin.Default()
+    
+    // Use the tracer middleware with your desired service name.
+    r.Use( gintrace.Middleware("emu-back") )
 
 	r.GET("/eat", func(c *gin.Context) {
         c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
